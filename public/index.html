@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat en vivo</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="/socket.io/socket.io.js"></script>
+    <script defer src="chat.js"></script>
+</head>
+<body>
+    <div id="panel-bienvenida">
+        <h2>BIENVENIDO A MI WHATSAPP</h2>
+        <input type="text" id="usuario" placeholder="Nombre de usuario">
+        <input type="password" id="contrasena" placeholder="Contraseña">
+        <button onclick="iniciarSesion()">Iniciar Sesión</button>
+        <p>¿No tienes cuenta? <button onclick="mostrarRegistro()">Regístrate</button></p>
+    </div>
+
+    <div id="panel-registro" style="display: none;">
+        <h2>REGISTRO</h2>
+        <input type="text" id="nuevo-usuario" placeholder="Nuevo usuario">
+        <input type="password" id="nueva-contrasena" placeholder="Nueva contraseña">
+        <button onclick="registrar()">Registrar</button>
+        <button onclick="mostrarLogin()">Volver a Iniciar Sesión</button>
+    </div>
+
+    <div id="app-chat" style="display: none;">
+        <h2 class="nube box">Chat en vivo</h2>
+        <div id="usuarios-conectados">
+            <h3>Usuarios Conectados:</h3>
+            <div id="lista-usuarios"></div>
+        </div>
+        <div id="ventana-mensajes">
+            <div id="output"></div>
+            <div id="escribiendo-mensaje" style="font-style: italic; color: gray;"></div> <!-- Mensaje de "escribiendo..." -->
+        </div>
+        <input type="text" id="mensaje" placeholder="Escribe un mensaje...">
+        <button id="enviar" onclick="enviarMensaje()">Enviar</button>
+        <button id="salir" onclick="salir()">Salir</button> <!-- Botón de salir -->
+    </div>
+    
+</body>
+</html>
